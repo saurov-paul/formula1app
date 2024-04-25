@@ -1,3 +1,7 @@
 body {
-    background-color: skyblue;
+  background: radial-gradient(
+    #43c6ac,
+#f8ffae);
 }
+
+

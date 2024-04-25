@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Formula1Controller!
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1>Formula 1 Races in 2024</h1>
+
+		<div class="row row-cols-3 justify-content-between" style="gap: 10px;">
+			{% for race in data.MRData.RaceTable.Races %}
+				<div class="card col" style="width: 18rem;">
+					<div class="card-header">
+						<a href="{{race.url}}" target="_blank">{{race.raceName}}</a>
+					</div>
+					<img src="https://source.unsplash.com/300x300?{{race.raceName}}" class="card-img-top w-100" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">
+							<a href="{{race.Circuit.url}}" target="_blank" rel="noopener noreferrer">
+								Circuit:{{race.Circuit.circuitName}}
+							</a>
+						</h5>
+						<p>Location:
+							{{race.Circuit.Location.locality}},
+							{{race.Circuit.Location.country}}
+						</p>
+						<p class="card-text">
+							Date :
+							{{race.date}}
+						</p>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+
+
+	</div>
+{% endblock %}
